@@ -12,7 +12,6 @@ ENV ANDROID_SDK_ROOT "/sdk"
 ENV ANDROID_HOME "${ANDROID_SDK_ROOT}"
 ENV PATH "$PATH:${ANDROID_SDK_ROOT}/tools"
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get install python
 RUN apt-get -qq update \
  && apt-get install -qqy --no-install-recommends \
       bzip2 \
@@ -27,6 +26,7 @@ RUN apt-get -qq update \
       lib32z1 \
       unzip \
       locales \
+      python \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
